@@ -4,6 +4,14 @@ import {describe, it} from "@jest/globals";
 
 describe(Match, () => {
 
+
+    it('Is typesafe - typescript errors will show if you try score a point by an invalid player name', () => {
+        const m = new Match("foo", "bar"); 
+
+        //@ts-expect-error
+        m.pointWonBy("bizz"); 
+    }); 
+
     it("Examples given in spec", () => {
         const match = new Match("player 1", "player 2");
         match.pointWonBy("player 1");
