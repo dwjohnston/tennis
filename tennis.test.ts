@@ -8,8 +8,10 @@ describe(Match, () => {
     it('Is typesafe - typescript errors will show if you try score a point by an invalid player name', () => {
         const m = new Match("foo", "bar"); 
 
+
+        
         //@ts-expect-error
-        m.pointWonBy("bizz"); 
+        expect(() => m.pointWonBy("bizz")).toThrow(); 
     }); 
 
     it("Examples given in spec", () => {
